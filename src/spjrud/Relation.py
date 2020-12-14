@@ -1,9 +1,15 @@
 import sqlite3
-
+ 
 class Relation(object):
 	"""Constructeur de Relation"""
 	def __init__(self,nom):
 		self.nom = nom
+		self.nomExp = "Rel("+str(nom)+")"
+		self.col =self.getRelationType(nom)
+
+	def __str__(self):
+		return self.nom
+
 
 
 
@@ -12,7 +18,7 @@ class Relation(object):
 		try:
 			con = sqlite3.connect(database)
 			cur = con.cursor()
-			requete = "PRAGMA table_info("+str(nom)+");" #permet d'avoirles informations sur la table
+			requete = "PRAGMA table_info("+str(nom)+");" #permet d'avoir les informations sur la table
 			cur.execute(requete)
 			col =[]
 			info =cur.fetchall()
@@ -21,6 +27,7 @@ class Relation(object):
 				col.append(nom_type)
 
 			cur.close()
+			return col
 		except sqlite3.Error as err:
 			print("erreur de lecture des donnees dans la table", err)
 

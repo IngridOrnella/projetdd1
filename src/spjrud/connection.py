@@ -1,1 +1,0 @@
-print("classe de connection")

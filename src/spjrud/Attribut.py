@@ -1,5 +1,6 @@
+import Expr
 
-class Attribut(nom):
+class Attribut(Expr):
 """ cette classe represente un attribut qui est representé par son nom """
 
 	def __init__(self,nom):

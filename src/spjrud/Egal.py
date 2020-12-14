@@ -1,7 +1,7 @@
 import Attribut
 
-class Egal(nom):
-""" cette classe represente un attribut qui est representé par son nom """
+class Egal(Expr):
+""" cette classe represente l'operateur d'egalité"""
 
 	def __init__(self, attr1, attr2):
 		self.nom= nom
